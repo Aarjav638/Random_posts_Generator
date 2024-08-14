@@ -27,6 +27,7 @@ const ContactUs: React.FC = () => {
       setLoading(false);
       alert(
         "Something went wrong, please try again" +
+          " " +
           (error as any).response.data.message
       );
     } finally {

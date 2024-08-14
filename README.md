@@ -11,7 +11,7 @@ git clone https://github.com/Aarjav638/Random_posts_Generator.git
 
 ```
 
-## Step 2. Move to Random Quotes Generator Directory
+## Step 2. Move to Random Posts Generator Directory
 
 ```bash
 cd Random_posts_Generator

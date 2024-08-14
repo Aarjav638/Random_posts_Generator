@@ -2,8 +2,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import { postSchema, postValues } from "@/Schema/zodSchema";
 const CreatePost: React.FC = () => {
   const {
@@ -20,7 +18,6 @@ const CreatePost: React.FC = () => {
 
   return (
     <div className="flex min-h-[100vh] flex-col justify-between ">
-      <Header />
       <main className="flex flex-col items-center">
         <h1 className="my-6 text-4xl">CreatePost</h1>
         <div className="flex mb-4 bg-slate-500 w-4/5 md:w-3/4 lg:w-1/2  rounded-lg justify-center items-center p-4">
@@ -78,7 +75,6 @@ const CreatePost: React.FC = () => {
           </form>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

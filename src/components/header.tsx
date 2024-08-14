@@ -61,17 +61,17 @@ const Header: React.FC = () => {
       {isOpen && (
         <div className="w-full bg-teal-500">
           <ul className="flex flex-col px-4 text-white gap-y-2 items-center sm:items-end ">
-            <li className="flex sm:hidden">
+            <li className="flex md:hidden">
               <Link href="/" referrerPolicy="no-referrer">
                 Home
               </Link>
             </li>
-            <li className="flex sm:hidden">
+            <li className="flex md:hidden">
               <Link href="/aboutus" referrerPolicy="no-referrer">
                 About
               </Link>
             </li>
-            <li className="flex sm:hidden">
+            <li className="flex md:hidden">
               <Link href="/contact" referrerPolicy="no-referrer">
                 Contact
               </Link>

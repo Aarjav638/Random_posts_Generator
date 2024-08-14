@@ -23,7 +23,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/about" referrerPolicy="no-referrer">
+              <Link href="/aboutus" referrerPolicy="no-referrer">
                 About
               </Link>
             </li>
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li className="flex sm:hidden">
-              <Link href="/about" referrerPolicy="no-referrer">
+              <Link href="/aboutus" referrerPolicy="no-referrer">
                 About
               </Link>
             </li>

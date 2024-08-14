@@ -60,7 +60,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col h-screen w-screen">
           <Header />
-          <div className="flex flex-grow flex-col max-w-full max-h-full overflow-auto">
+          <div className=" max-w-full max-h-full overflow-auto">
             {children}
             <Footer />
           </div>

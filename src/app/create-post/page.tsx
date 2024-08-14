@@ -3,7 +3,9 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { postSchema, postValues } from "@/Schema/zodSchema";
+import { PrismaClient } from "@prisma/client";
 const CreatePost: React.FC = () => {
+  const prisma = new PrismaClient();
   const {
     register,
     handleSubmit,
@@ -11,9 +13,26 @@ const CreatePost: React.FC = () => {
   } = useForm<postValues>({
     resolver: zodResolver(postSchema),
   });
+  const getUserId = async () => {
+    const user = await prisma.user.findFirst({
+      where: { email: "anshjain638@gmail.com" },
+    });
+    return user?.id;
+  };
 
-  const onSubmit: SubmitHandler<postValues> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<postValues> = async (data) => {
+    const userId = await getUserId();
+    prisma.post
+      .create({
+        data: {
+          title: data.title,
+          content: data.content,
+          author: { connect: { id: userId } },
+        },
+      })
+      .then(() => {
+        alert("Post Created");
+      });
   };
 
   return (
@@ -28,19 +47,19 @@ const CreatePost: React.FC = () => {
             {/* Name Field */}
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between w-full  sm:w-3/4 p-4">
               <label htmlFor="name" className="text-white">
-                Author Name:
+                Title:
               </label>
               <div className="w-full sm:w-2/3 gap-y-2 justify-center flex flex-col">
                 <input
-                  {...register("author_name")}
+                  {...register("title")}
                   type="text"
                   placeholder="Author Name"
                   className="p-2 w-full  border border-gray-300 rounded-md"
-                  aria-invalid={errors.author_name ? "true" : "false"}
+                  aria-invalid={errors.title ? "true" : "false"}
                 />
-                {errors.author_name && (
+                {errors.title && (
                   <p role="alert" className="text-teal-400 bg-black">
-                    {errors.author_name.message}
+                    {errors.title.message}
                   </p>
                 )}
               </div>
@@ -49,17 +68,17 @@ const CreatePost: React.FC = () => {
             {/* Post Field */}
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between w-full  sm:w-3/4 p-4">
               <label htmlFor="quote" className="text-white">
-                Post:
+                Post Content:
               </label>
               <div className="w-full sm:w-2/3 gap-y-2 justify-center flex flex-col">
                 <textarea
-                  {...register("quote")}
+                  {...register("content")}
                   className="p-2 w-full  min-h-48 border border-gray-300 rounded-md"
-                  aria-invalid={errors.quote ? "true" : "false"}
+                  aria-invalid={errors.content ? "true" : "false"}
                 />
-                {errors.quote && (
+                {errors.title && (
                   <p role="alert" className="text-teal-400 bg-black">
-                    {errors.quote.message}
+                    {errors.content!.message}
                   </p>
                 )}
               </div>

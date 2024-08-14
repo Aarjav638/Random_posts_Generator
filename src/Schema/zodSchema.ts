@@ -15,8 +15,8 @@ type formValues = z.infer<typeof contactUsSchema>;
 
 
 const postSchema = z.object({
-    author_name: z.string().min(1, { message: "Name is required" }).max(50),
-    quote: z.string().min(1, { message: "Quote is required" }),
+    title: z.string().min(1, { message: "Name is required" }).max(50),
+    content: z.string().min(1, { message: "Quote is required" }),
 });
 
 type postValues = z.infer<typeof postSchema>;

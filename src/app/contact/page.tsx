@@ -3,8 +3,11 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formValues, contactUsSchema } from "@/Schema/zodSchema";
+import { set } from "zod";
+import axios from "axios";
 
 const ContactUs: React.FC = () => {
+  const [loading, setLoading] = React.useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -13,8 +16,24 @@ const ContactUs: React.FC = () => {
     resolver: zodResolver(contactUsSchema),
   });
 
-  const onSubmit: SubmitHandler<formValues> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<formValues> = async (data) => {
+    try {
+      setLoading(true);
+      const res = await axios.post("/api/contactus", data);
+
+      console.log(res);
+      if (res.status === 200) {
+        console.log(res.data.message);
+      } else {
+        console.log(res.data.message);
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      // console.log(error?.response?.data?.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -110,7 +129,7 @@ const ContactUs: React.FC = () => {
             className="bg-teal-500 text-white p-2 rounded-md"
             type="submit"
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

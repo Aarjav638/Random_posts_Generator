@@ -20,8 +20,6 @@ const PostModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
       <Image
         src={close}
         alt="close"
-        height={24}
-        width={24}
         className="h-6 w-6 fixed sm:right-12 xl:right-72 md:right-16 lg:right-52 top-32 sm:top-16 cursor-pointer "
         onClick={handleClose}
       />

@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     return (
         <>
             <header className='flex justify-between flex-row bg-teal-500 min-w-full text-white py-4 px-4 md:px-8 items-center'>
-                <Link href='/'> <h1 className='text-xl md:text-2xl font-semibold mr-6 md:ml-6 text-center'>Random Quotes Generator</h1></Link>
+                <Link href='/'> <h1 className='text-xl md:text-2xl font-semibold mr-6 md:ml-6 text-center'>Random Posts Generator</h1></Link>
                 <div className='w-[25%] hidden md:flex'>
                     <ul className='flex-row flex gap-x-6 '>
                         <li><Link href="/" referrerPolicy="no-referrer" >Home</Link></li>

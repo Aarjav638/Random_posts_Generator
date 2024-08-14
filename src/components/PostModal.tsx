@@ -25,7 +25,7 @@ const PostModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
 
 
 
-                {data.length === 0 ? <img src="/timer.png" alt="loading" className="w-12 h-12 mx-auto animate-spin " /> :
+                {data.length === 0 ? <Image src="/timer.png" alt="loading" className="w-12 h-12 mx-auto animate-spin " /> :
                     <>
                         <h1 className="text-2xl font-bold">Posts</h1>
 

@@ -1,15 +1,15 @@
 'use client'
 import React, { useState } from 'react';
-import { Quote } from '../constants/types';
-import QuoteModal from './QuoteModal';
+import { Post } from '../constants/types';
+import PostModal from './PostModal';
 
-export const QuoteSection: React.FC = () => {
+export const PostSection: React.FC = () => {
 
   const [num, setNum] = useState<number>(1);
 
 
 
-  const [Data, setData] = useState<Quote[]>([]);
+  const [Data, setData] = useState<Post[]>([]);
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -31,7 +31,7 @@ export const QuoteSection: React.FC = () => {
     return true;
   }
 
-  const getQuote = async () => {
+  const getPost = async () => {
     if (!validiateNum(num)) {
       return;
     }
@@ -67,8 +67,8 @@ export const QuoteSection: React.FC = () => {
         placeholder="Enter the number of quotes"
       />
 
-      <QuoteModal isOpen={isOpen} data={Data.slice(0, num)} handleClose={handleClose} />
-      <button className="bg-teal-500 text-black py-2 px-4 rounded" onClick={getQuote}>
+      <PostModal isOpen={isOpen} data={Data.slice(0, num)} handleClose={handleClose} />
+      <button className="bg-teal-500 text-black py-2 px-4 rounded" onClick={getPost}>
         {loading ? "Loading..." : "Get Posts"}
       </button>
     </div>

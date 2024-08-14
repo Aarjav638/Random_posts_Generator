@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Quote } from '../constants/types'
+import { Post } from '../constants/types'
 
 interface ModalProps {
     isOpen: boolean;
-    data: Quote[];
+    data: Post[];
     handleClose: () => void;
 }
 
-const QuoteModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
+const PostModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
 
 
     return (
@@ -26,7 +26,7 @@ const QuoteModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
 
                 {data.length === 0 ? <img src="/timer.png" alt="loading" className="w-12 h-12 mx-auto animate-spin " /> :
                     <>
-                        <h1 className="text-2xl font-bold">Quotes</h1>
+                        <h1 className="text-2xl font-bold">Posts</h1>
 
                         <div className="items-center justify-center bg-slate-100 p-4 my-2">
                             {
@@ -54,4 +54,4 @@ const QuoteModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
     )
 }
 
-export default QuoteModal;
+export default PostModal;

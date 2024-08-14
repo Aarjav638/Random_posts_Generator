@@ -20,17 +20,15 @@ const ContactUs: React.FC = () => {
     try {
       setLoading(true);
       const res = await axios.post("/api/contactus", data);
-
-      console.log(res);
       if (res.status === 200) {
-        console.log(res.data.message);
-      } else {
-        console.log(res.data.message);
+        window.location.reload();
       }
     } catch (error) {
       setLoading(false);
-      console.log(error);
-      // console.log(error?.response?.data?.message);
+      alert(
+        "Something went wrong, please try again" +
+          (error as any).response.data.message
+      );
     } finally {
       setLoading(false);
     }

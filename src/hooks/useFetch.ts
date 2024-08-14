@@ -1,23 +1,34 @@
-'use client'
 import { useState, useEffect } from 'react';
-import  {Quote}  from '../constants/types';
 
-const useFetch = (url: string): [Quote[] | null, boolean] => {
-    const [data, setData] = useState<Quote[] | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-
-    const fetchData = async () => {
-        const response = await fetch(url);
-        const result = await response.json();
-        setData(result);
-        setLoading(false);
-    };
+const useFetch = (url: string) => {
+    const [data, setData] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                setData(result);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(err);
+                } else {
+                    setError(new Error('An unknown error occurred'));
+                }
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchData();
     }, [url]);
 
-    return [data, loading];
+    return [data, loading, error] as const;
 };
 
 export default useFetch;

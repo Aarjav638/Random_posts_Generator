@@ -26,27 +26,16 @@ cd Random_posts_Generator
 npm install
 ```
 
-## step 4 run the development :
-
-- for linux|unix
-
-- creating executable file
+## step 4 run the development server:
 
 ```bash
-chmod +x dev.sh
-```
-
-- run the executable file
-
-```
-./dev.sh
-
-```
-
-- for windows
-
-```bash
-.\dev.bat
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

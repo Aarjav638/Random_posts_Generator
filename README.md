@@ -2,7 +2,31 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+## Step 1. Cloning Git Repository
+
+Perform
+
+```bash
+git clone https://github.com/Aarjav638/Random_posts_Generator.git
+
+```
+
+## Step 2. Move to Random Quotes Generator Directory
+
+```bash
+cd Random_posts_Generator
+
+```
+
+## Step 3. Install Necessary Dependencies
+
+## using Npm
+
+```bash
+npm install
+```
+
+## step 4 run the development server:
 
 ```bash
 npm run dev

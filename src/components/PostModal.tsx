@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Post } from '../constants/types'
+import Image from 'next/image';
 
 interface ModalProps {
     isOpen: boolean;
@@ -13,7 +14,7 @@ const PostModal: React.FC<ModalProps> = ({ isOpen, data, handleClose }) => {
 
     return (
         <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 ${isOpen ? 'flex' : 'hidden'} justify-center items-center sm:items-start `}>
-            <img
+            <Image
                 src='/close.svg'
                 alt="close"
                 className="h-6 w-6 fixed sm:right-12 xl:right-72 md:right-16 lg:right-52 top-32 sm:top-16 cursor-pointer "

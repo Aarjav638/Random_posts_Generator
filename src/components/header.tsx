@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     return (
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
 
                     </ul>
                 </div>
-                <img src="/menu.png" alt="logo" className='flex lg:hidden w-6 h-6 lg:w-16 lg:h-16' onClick={() => { setIsOpen(!isOpen) }} />
+                <Image src="/menu.png" alt="logo" className='flex lg:hidden w-6 h-6 lg:w-16 lg:h-16' onClick={() => { setIsOpen(!isOpen) }} />
 
                 <div className='gap-2 hidden lg:flex '>
                     <span > <button className='bg-white text-teal-500 px-4 py-2 rounded-lg'
